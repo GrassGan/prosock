@@ -1,8 +1,0 @@
-syntax = "proto2";
-package Prosock;
-
-message ServerMessage {
-  required string openSocket = 1;
-  required int32 id = 2;
-  required string closeSocket = 3;
-  }

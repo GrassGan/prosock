@@ -1,0 +1,28 @@
+syntax = 'proto2';
+
+package sockfun;
+
+enum IpcType {
+  UnixSocket = 10;
+  Pipes = 12;
+  Signals = 11;
+  FIFO  = 9;
+  Semaphores = 8;
+  MemMappFiles = 7;
+  MsgQueues = 6;  
+};
+
+message Ipc {
+  required string Name = 1;
+  repeated Owner Groups = 2;
+  required IpcType Type = 3;
+  optional group File = 4 {
+    optional string Size = 5;
+    required string Device = 13;
+    required int32 Inode = 14;  
+  }
+}
+
+message Owner {
+  required string Name = 1;
+}
